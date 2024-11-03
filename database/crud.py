@@ -1,9 +1,10 @@
 import sys
 import bit
 import bit.network
+#from zmq.backend import first
 
-from database.db import *
 sys.path.append('/home/redmi/Python_test_tasks/API_APP/')
+from database.db import *
 
 import pydantic_models
 
@@ -113,7 +114,8 @@ def get_user_by_id(id: int):
 
 @db_session
 def get_user_by_tg_id(tg_id: int):
-    return select(i for i in User if i.tg_ID == tg_id)
+
+    return select(i for i in User if i.tg_ID == tg_id).get().to_dict()
 
 
 @db_session

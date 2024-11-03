@@ -47,5 +47,10 @@ class User_to_create(pydantic.BaseModel):
     nick:   str = None
 
 
+class Create_Transaction(pydantic.BaseModel):
+    tg_id: str
+    receiver_address: str
+    amount_btc_without_fee: float
+
 
     
